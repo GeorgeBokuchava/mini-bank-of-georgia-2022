@@ -1,0 +1,76 @@
+<!--<div class="accounts">-->
+<!--  <h2>ანგარიშები</h2>-->
+<!--  <div class="accounts__header">-->
+<!--    <div class="accounts__main">-->
+<!--      <div>ანგარიშები</div>-->
+<!--      <div>-->
+<!--        <button routerLink="/krn/accounts/create" class="ui icon button" tabindex="0">-->
+<!--          <i class="plus icon"></i>-->
+<!--        </button>-->
+<!--      </div>-->
+<!--    </div>-->
+<!--    <ng-template #noAccount>-->
+<!--      <div class="noAccount">-->
+<!--        <p>ჩანაწერი არ მოიძებნა</p>-->
+<!--      </div>-->
+<!--    </ng-template>-->
+<!--    <div *ngIf="accounts.length; else noAccount">-->
+<!--      <div class="accounts-container" id="main">-->
+<!--        <div>მფლობელი</div>-->
+<!--        <div>სახელი</div>-->
+<!--        <div>თანხა</div>-->
+<!--        <div></div>-->
+<!--      </div>-->
+<!--      <div *ngFor="let account of accounts">-->
+<!--        <div class="accounts-container">-->
+<!--          <div>{{account.clientFirstName + ' ' + account.clientLastName}}</div>-->
+<!--          <div>{{account.accountName}}</div>-->
+<!--          <div>{{account.amount + '.00'}}</div>-->
+
+<!--         <div>-->
+<!--           <button   class="ui icon button box" (click)="deleteAccount(account.accountKey)">-->
+<!--             <i class="trash button icon"></i>-->
+<!--           </button>-->
+<!--         </div>-->
+<!--        </div>-->
+<!--      </div>-->
+<!--    </div>-->
+<!--  </div>-->
+<!--</div>-->
+<div>
+  <div class="table-header">
+    <span>ანგარიშები</span>
+    <button routerLink="/bpm/bpm001" class="ui icon button" tabindex="0">
+      <i class="plus icon"></i>
+    </button>
+  </div>
+  <div *ngIf="!accounts.length" class="noClients">
+    ჩანაწერი არ მოიძებნა
+  </div>
+
+  <table *ngIf="accounts.length">
+    <thead>
+    <th>მფლობელი</th>
+    <th>სახელი</th>
+    <th>თანხა</th>
+    <th></th>
+    </thead>
+    <tbody>
+    <tr *ngFor="let account of accounts">
+      <td>{{account.clientFirstName + ' ' + account.clientLastName}}</td>
+      <td>{{account.accountName}}</td>
+      <td>{{account.amount + '.00'}}</td>
+      <td> <button   class="ui icon button box  right floated" (click)="deleteAccount(account.accountKey)">
+         <i class="trash button icon"></i>
+            </button>
+      </td>
+    </tr>
+    </tbody>
+
+  </table>
+</div>
+
+<div class="ui active dimmer" *ngIf="loaderService.isLoading">
+  <div class="ui loader"></div>
+</div>
+

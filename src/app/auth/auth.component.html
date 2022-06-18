@@ -3,7 +3,11 @@
   <div class="auth__form-column">
     <img src="/assets/images/logo.svg" alt="logo">
     <div class="ui form">
-      <!-- TODO: Here goes your markup -->
+      <router-outlet></router-outlet>
     </div>
   </div>
+</div>
+<bg-error *ngIf="authService.err"></bg-error>
+<div class="ui active dimmer" *ngIf="loadService.isLoading">
+  <div class="ui loader"></div>
 </div>

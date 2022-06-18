@@ -1,0 +1,10 @@
+<div class="ui  active dimmer" *ngIf="showError" >
+  <div appPopup class="ui model"  (close)="close()"  *ngIf="showError">
+    <div class="header">შეცდომა</div>
+    <hr>
+  <div  class="content" *ngIf="authService.err">{{authService.err | async}}</div>
+    <div class="content" *ngIf="accountService.err">{{accountService.err | async}}</div>
+    <button (click)="close()"><i class="check icon"></i></button>
+  </div>
+</div>
+

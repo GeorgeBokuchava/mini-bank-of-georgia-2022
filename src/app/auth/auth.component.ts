@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import {AuthService} from '../services/auth.service';
+import {LoaderService} from '../shared/loader/loader.service';
 
 @Component({
   selector: 'bg-auth',
@@ -7,7 +9,10 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AuthComponent implements OnInit {
 
-  constructor() { }
+  constructor(
+    public authService: AuthService,
+    public loadService: LoaderService
+  ) { }
 
   ngOnInit(): void {
   }

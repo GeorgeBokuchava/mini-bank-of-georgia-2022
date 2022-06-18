@@ -1,0 +1,220 @@
+$border-color: rgba(0, 0, 0, .1);
+
+@mixin flex-box($direction,$justify) {
+  display: flex;
+  flex-direction: $direction;
+  justify-content: $justify;
+}
+
+.accounts {
+  margin-top: 1rem;
+  padding: .5rem;
+  display: flex;
+  flex-direction: column;
+  height: auto;
+  width: calc(100% - 1rem);
+  background: white;
+
+  &__main {
+    width: calc(100% - 2rem);
+    @include flex-box(row, space-between);
+    align-items: center;
+    padding: .5rem 1rem 1rem 1rem;
+    font-weight: bold;
+  }
+
+  &__header {
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+    margin-top: 1rem;
+    border-radius: .5rem;
+    border: .1rem solid $border-color;
+    @include flex-box(column, center);
+    font-size: .8rem;
+
+
+    #main {
+      background: #7c7c7c;
+      font-weight: bold;
+
+      div {
+        @include flex-box(row, center);
+      }
+    }
+
+    .noAccount {
+      width: calc(100% - 2rem);
+      padding-left: 1rem;
+      padding-top: .5rem;
+      border-top: .1rem solid $border-color;
+      font-size: .9rem;
+      height: 2rem;
+    }
+
+    .accounts-container {
+      @include flex-box(row, space-between);
+      width: 100%;
+
+
+      div:nth-child(1) {
+        @include flex-box(row, flex-start);
+        width: 30%;
+        border-right-style: none;
+      }
+
+      div:nth-child(2) {
+        @include flex-box(row, flex-start);
+        width: 20%;
+      }
+
+      div:nth-child(3) {
+        @include flex-box(row, flex-end);
+        width: 30%;
+        border-left-style: none;
+      }
+
+      div:nth-child(4) {
+        @include flex-box(row, flex-end);
+        width: 20%;
+        border-left-style: none;
+      }
+
+      div {
+        align-items: center;
+        background-color: rgba(255, 255, 255, 0.8);
+        border-width: 1px;
+        border-style: solid;
+        text-align: center;
+        padding: 1rem;
+        border-color: $border-color;
+        font-size: 1rem;
+      }
+    }
+
+  }
+}
+i {
+  font-size: 1rem;
+  transition: background-color .5s,color .5s;
+  color: #adadad;
+  cursor: pointer;
+}
+
+i:hover{
+  color: red;
+}
+
+.box{
+  display: flex;
+   align-items: center;
+  justify-content: center;
+  width: 2.5rem;
+  height: 2.5rem;
+  border-radius: 100%;
+  background: transparent;
+}
+.box:hover{
+  background: rgba(206, 206, 206, 0.8);
+  transition: all .4s;
+}
+
+
+.table-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-radius: 4px 4px 0 0;
+  border: 1px solid #d6d6d6;
+  border-bottom: none;
+  padding: 1em;
+  font-weight: 700;
+  background: white;
+  margin-top: 1rem;
+}
+
+.noClients{
+  display: flex;
+  align-items: center;
+  height: 70px;
+  width: 100%;
+  background: white;
+  padding-left: 1em;
+}
+
+table:before {
+  content: "";
+  display: block;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  border: 1px solid #d6d6d6;
+  border-radius: 0 0 4px 4px;
+  pointer-events: none;
+}
+table {
+  border-collapse: collapse;
+  width: 100%!important;
+  border-radius: 0 0 4px 4px;
+  overflow: hidden;
+  background: white;
+}
+
+.table-header, table {
+  position: relative;
+  box-shadow: 0 3px 5px rgb(0 0 0 / 10%);
+}
+
+table {
+  display: table;
+  border-collapse: separate;
+  box-sizing: border-box;
+  text-indent: initial;
+  border-spacing: 2px;
+  border-color: grey;
+}
+
+table tbody, table thead {
+  border-collapse: collapse;
+}
+
+
+tbody {
+  display: table-row-group;
+  vertical-align: middle;
+  border-color: inherit;
+
+}
+
+table {
+  border-collapse: separate;
+  text-indent: initial;
+  border-spacing: 2px;
+}
+
+table tbody, table thead {
+  border-collapse: collapse;
+}
+tbody {
+  display: table-row-group;
+  vertical-align: middle;
+  border-color: inherit;
+}
+
+tr {
+  display: table-row;
+  vertical-align: inherit;
+  cursor: pointer;
+  horiz-align: right;
+  border-color: inherit;
+  td:nth-child(1){
+   text-align: left;
+  }
+  td:nth-child(2){
+    text-align: left;
+  }
+  td{
+    text-align: right;
+  }
+}

@@ -1,0 +1,104 @@
+@mixin flex-box($align, $justify, $direction) {
+  display: flex;
+  align-items: $align;
+  justify-content: $justify;
+  flex-direction: $direction;
+}
+
+$border-color: rgba(0, 0, 0, .1);
+
+.user {
+  @include flex-box(center, center, column);
+  width: 100%;
+  height: 14rem;
+  background: white;
+
+  &__view {
+    @include flex-box(flex-start, space-between, row);
+    padding: 1rem;
+    height: 11rem;
+    width: calc(100% - 2rem);
+
+
+    &__profile {
+      @include flex-box(center, space-between, row);
+      width: 30%;
+
+      div:nth-child(1) {
+        img {
+          width: 9rem;
+        }
+      }
+
+      div:nth-child(2) {
+        @include flex-box(flex-start, space-between, column);
+        height: 9rem;
+
+        p:nth-child(1) {
+          font-size: .9rem;
+          font-weight: bold;
+        }
+
+        p {
+          font-size: .9rem;
+          font-weight: bold;
+
+          span {
+            font-weight: normal;
+            color: #ababab
+          }
+
+        }
+      }
+    }
+
+    &__amount {
+      width: 25%;
+      height: 9rem;
+      @include flex-box(center, space-between, column);
+      padding-right: 2rem;
+
+      div:nth-child(2) {
+        width: 80%;
+      }
+
+      div {
+        width: 100%;
+        @include flex-box(center, space-between, row);
+      }
+    }
+  }
+
+  &__options {
+    width: 100%;
+    height: 2.5rem;
+    @include flex-box(center, space-between, row);
+
+
+    div:nth-child(2) {
+      width: 33%;
+      border: .1rem solid $border-color;
+      border-bottom: none;
+      border-top: none;
+    }
+
+    div {
+      height: 100%;
+      width: 33%;
+      @include flex-box(center, center, row);
+      font-size: .9rem;
+      cursor: pointer;
+    }
+
+  }
+}
+
+button{
+  margin-left: 10rem !important;
+}
+
+.ui .center{
+
+   cursor: pointer;
+
+}

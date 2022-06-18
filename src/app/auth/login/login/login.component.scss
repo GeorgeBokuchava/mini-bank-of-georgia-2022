@@ -1,0 +1,15 @@
+.loginbtns {
+  margin-top: 1rem;
+   span {
+     cursor: pointer;
+   }
+}
+
+input.ng-invalid.ng-touched {
+  border: 1px solid #b78a58 !important;
+}
+
+
+p{
+  color: red;
+}

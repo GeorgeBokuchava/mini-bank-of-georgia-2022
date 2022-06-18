@@ -1,0 +1,34 @@
+<div class="register-form">
+  <div class="ui segments">
+
+    <div class="ui segment">
+      <h1>ანგარიშის შექმნა</h1>
+    </div>
+    <div class="ui segment">
+      <form [formGroup]="form" class="ui form">
+        <div class="ui fields">
+          <div class="sixteen wide field">
+            <label for="username">ანგარიშის სახელი</label>
+            <input type="text" id="username" formControlName="name">
+            <ng-container *ngIf="get('name').touched">
+              <p *ngFor="let error of errors('name')">{{ error }}</p>
+            </ng-container>
+          </div>
+        </div>
+        <div class="ui fields">
+          <div class="sixteen wide field">
+            <label for="points">თანხა</label>
+            <input type="number" id="points" formControlName="amount">
+            <ng-container *ngIf="get('amount').touched">
+              <p *ngFor="let error of errors('amount')">{{ error }}</p>
+            </ng-container>
+          </div>
+        </div>
+        <button class="ui orange button" (click)="createAccount()">შექმნა</button>
+      </form>
+    </div>
+  </div>
+</div>
+<div class="ui active dimmer" *ngIf="loaderService.isLoading">
+  <div class="ui loader"></div>
+</div>

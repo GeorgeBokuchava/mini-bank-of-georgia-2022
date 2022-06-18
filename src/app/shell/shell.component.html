@@ -1,11 +1,13 @@
 <div class="shell">
-  <bg-shell-header></bg-shell-header>
-  <bg-shell-sidebar></bg-shell-sidebar>
+  <app-shell-header></app-shell-header>
+  <app-shell-sidebar></app-shell-sidebar>
   <div class="shell__content">
     <div class="ui container">
-      <div class="shell__content__operation-date">საოპერაციო თარიღი: {{ curDate }}<hr></div>
-      <!-- TODO: Show client header here when client is chosen -->
+      <div class="shell__content__operation-date">საოპერაციო თარიღი: {{ curDate }}
+        <hr>
+      </div>
       <router-outlet></router-outlet>
     </div>
   </div>
 </div>
+<bg-error *ngIf="accountService.err"></bg-error>

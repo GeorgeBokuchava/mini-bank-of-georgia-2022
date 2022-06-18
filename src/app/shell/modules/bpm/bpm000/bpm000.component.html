@@ -1,0 +1,59 @@
+<div class="ui segments">
+ <div class="ui segment">
+   <h1>კლიენტის ძებნა</h1>
+ </div>
+  <div class="ui segment ">
+    <div class="ui segment bordered form">
+     <div class="ui three column grid">
+       <div class="column">
+         <div class="field">
+           <label for="firstName" >სახელი</label>
+           <input type="text" id="firstName" [(ngModel)]="firstName" name="firstName">
+         </div>
+       </div>
+       <div class="column">
+         <label for="lastName"  >გვარი</label>
+         <input type="text" id="lastName" [(ngModel)]="lastName" name="lastName" >
+       </div>
+       <div class="column">
+         <label for="key" >კლიენტის უნიკალური</label>
+         <input type="number" id="key" [(ngModel)]="key" name="key">
+       </div>
+     </div>
+      <div class="search-btn">
+        <button (click)="search()" type="submit" class="ui right-aligned orange button">ძებნა</button>
+      </div>
+    </div>
+  </div>
+
+<div  *ngIf="clients$ | async as clients;">
+  <div class="table-header">
+    <span>კლიენტები</span>
+    <button routerLink="/bpm/bpm001" class="ui icon button" tabindex="0">
+      <i class="plus icon"></i>
+    </button>
+  </div>
+  <div *ngIf="!clients.length" class="noClients">
+    ჩანაწერი არ მოიძებნა
+  </div>
+
+  <table *ngIf="clients.length">
+    <thead>
+    <th>სახელი</th>
+    <th>გვარი</th>
+    <th>კლიენტის უნიკალური</th>
+    </thead>
+    <tbody>
+    <tr *ngFor="let client of clients$ | async" (click)="saveUser(client)" routerLink="/krn">
+      <td>{{client.firstName}}</td>
+      <td>{{client.lastName}}</td>
+      <td>{{client.clientKey}}</td>
+    </tr>
+    </tbody>
+
+  </table>
+</div>
+</div>
+<div class="ui active dimmer" *ngIf="loaderService.isLoading">
+  <div class="ui loader"></div>
+</div>

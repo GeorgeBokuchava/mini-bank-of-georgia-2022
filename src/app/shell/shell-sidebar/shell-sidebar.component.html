@@ -1,10 +1,27 @@
+<!--<div class="left-sidebar">-->
+<!--  <div class="left-sidebar__user-section">-->
+<!--    &lt;!&ndash; TODO: Show User's name and picture here &ndash;&gt;-->
+<!--  </div>-->
+<!--  <ul class="left-sidebar__pages-section">-->
+<!--    <li>-->
+<!--      <a href="#">-->
+<!--        <i class="home icon"></i>-->
+<!--        <span>მთავარი</span>-->
+<!--      </a>-->
+<!--    </li>-->
+<!--  </ul>-->
+<!--</div>-->
 <div class="left-sidebar">
   <div class="left-sidebar__user-section">
-    <!-- TODO: Show User's name and picture here -->
+    <img src="{{user.image}}">
+    <div>
+      <h3>{{user.name}}</h3>
+      <h4>{{user.username}}</h4>
+    </div>
   </div>
   <ul class="left-sidebar__pages-section">
     <li>
-      <a href="#">
+      <a>
         <i class="home icon"></i>
         <span>მთავარი</span>
       </a>

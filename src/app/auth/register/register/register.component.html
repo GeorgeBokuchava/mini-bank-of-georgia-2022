@@ -1,0 +1,39 @@
+<form (submit)=register() [formGroup] = form>
+  <div class="ui left icon input sixteen wide field">
+    <input type="text" placeholder="სახელი"  formControlName="name">
+    <i class="address card icon"></i>
+  </div>
+  <ng-container *ngIf="get('name').touched">
+    <p *ngFor="let error of errors('name')">{{ error }}</p>
+  </ng-container>
+  <div class="ui left icon input sixteen wide field">
+    <input type="text" placeholder="მომხმარებელი"  formControlName="userName">
+    <i class="user icon"></i>
+  </div>
+  <ng-container *ngIf="get('userName').touched">
+    <p *ngFor="let error of errors('userName')">{{ error }}</p>
+  </ng-container>
+  <div class="ui left icon input sixteen wide field">
+    <input type="text" placeholder="პაროლი"  formControlName="password" >
+    <i class="lock icon"></i>
+  </div>
+  <ng-container *ngIf="get('password').touched">
+    <p *ngFor="let error of errors('password')">{{ error }}</p>
+  </ng-container>
+  <div class="ui left icon input sixteen wide field">
+    <input type="text" formControlName="confirmPassword"  placeholder="განმეორებითი პაროლი" >
+    <i class="lock icon"></i>
+  </div>
+  <ng-container *ngIf="get('confirmPassword').touched">
+    <p *ngIf="get('confirmPassword').value !== get('password').value">პაროლები არ ემთხვევა</p>
+  </ng-container>
+
+</form>
+<div class="registerbtns">
+  <span routerLink="/auth/login"  class="ui orange text">შესვლა</span>
+  <button  (click)="register()" class="ui basic orange right floated button">
+    <i class="sign in alternate icon"></i>
+    რეგისტრაცია </button>
+
+</div>
+

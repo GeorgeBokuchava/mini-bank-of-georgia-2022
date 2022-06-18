@@ -1,0 +1,48 @@
+<bg-krnicp></bg-krnicp>
+
+<form (submit)="submitForm()"  class="ui form" [formGroup]="form" >
+  <h1>თანხის გადარიცხვა</h1>
+  <div class="ui fields">
+    <div class="nine wide field">
+      <label for="sender">გამგზავნი ანგარიში</label>
+      <select id="sender" (change)="senderValue($event)" formControlName="sender">
+        <option selected hidden disabled>აირჩიე</option>
+        <option *ngFor="let acc of accounts" [value]="acc.accountKey">
+          {{acc.accountKey + ' - ' + acc.amount + '.00GEL ' + ' (' + acc.clientFirstName + ' ' + acc.clientLastName + ')'}}
+        </option>
+      </select>
+      <ng-container *ngIf="get('sender').touched">
+        <p *ngFor="let error of errors('sender')">{{ error }}</p>
+      </ng-container>
+    </div>
+  </div>
+  <div class="ui fields">
+    <div class="nine wide field">
+      <label for="receiver">მიმღები ანგარიში</label>
+      <select id="receiver" (change)="receiverValue($event)" formControlName="receiver">
+        <option selected hidden disabled>აირჩიე</option>
+        <option *ngFor="let acc of allAccounts" [value]="acc.accountKey">
+          {{acc.accountKey + ' - ' + acc.amount + '.00GEL ' + ' (' + acc.clientFirstName + ' ' + acc.clientLastName + ')'}}
+        </option>
+      </select>
+      <ng-container *ngIf="get('receiver').touched">
+        <p *ngFor="let error of errors('receiver')">{{ error }}</p>
+      </ng-container>
+    </div>
+  </div>
+  <div class="ui fields">
+    <div class="nine wide field">
+      <label for="amount">თანხა</label>
+      <input [(ngModel)]="amount" name="amount" type="number" id="amount" formControlName="amount">
+      <ng-container *ngIf="get('amount').touched">
+        <p *ngFor="let error of errors('amount')">{{ error }}</p>
+      </ng-container>
+    </div>
+  </div>
+  <button class="ui orange button" type="submit">გადარიცხვა</button>
+</form>
+
+<div class="ui active dimmer" *ngIf="loaderService.isLoading">
+  <div class="ui loader"></div>
+</div>
+

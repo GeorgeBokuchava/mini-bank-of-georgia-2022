@@ -1,0 +1,71 @@
+<!--<div class="user">-->
+<!--  <div class="user__view">-->
+
+<!--    <div class="user__view__profile">-->
+<!--      <div>-->
+<!--        <img src="{{user.image}}">-->
+<!--      </div>-->
+<!--      <div>-->
+<!--        <p>{{user.firstName + ' ' + user.lastName}}</p>-->
+<!--        <p><span>უნიკალური კოდი:</span>{{user.clientKey}}</p>-->
+<!--      </div>-->
+<!--    </div>-->
+
+<!--    <div class="user__view__amount">-->
+<!--      <div>-->
+<!--        <span>აქტივები:</span>-->
+<!--        <span style="color: #00b600;font-weight: bold">{{user.sumAmount + '.00'}}-->
+<!--          <span style="color: black">GEL</span>-->
+<!--        </span>-->
+<!--      </div>-->
+<!--      <div>-->
+<!--        <span>Plus</span>-->
+<!--        <span>{{user.plusPoints}}</span>-->
+<!--      </div>-->
+<!--      <button class="ui red right aligned button" (click)="logOut()">გასვლა</button>-->
+<!--    </div>-->
+<!--  </div>-->
+
+<!--  <div class="user__options">-->
+<!--    <div (click)="goToMain()">მთავარი</div>-->
+<!--    <div (click)="goToAccounts(user.clientKey)">ანგარიშები</div>-->
+<!--    <div (click)="goOperations(user.clientKey)">ოპერაციები</div>-->
+<!--  </div>-->
+<!--</div>-->
+
+<div class="ui segments">
+  <div class="ui segment user">
+    <div class="user__view">
+
+      <div class="user__view__profile">
+        <div>
+          <img src="{{user.image}}">
+        </div>
+        <div>
+          <p>{{user.firstName + ' ' + user.lastName}}</p>
+          <p><span>უნიკალური კოდი:</span>{{user.clientKey}}</p>
+        </div>
+      </div>
+
+      <div class="user__view__amount">
+        <div>
+          <span>აქტივები:</span>
+          <span style="color: #00b600;font-weight: bold">{{user.sumAmount + '.00'}}
+          <span style="color: black">GEL</span>
+        </span>
+        </div>
+        <div>
+          <span>Plus</span>
+          <span>{{user.plusPoints}}</span>
+        </div>
+        <button class="ui red right aligned button" (click)="logOut()">გასვლა</button>
+      </div>
+    </div>
+  </div>
+  <div class="ui horizontal segments">
+    <div class="ui segment center aligned" (click)="goToMain()">მთავარი</div>
+    <div class="ui segment  center aligned" (click)="goToAccounts(user.clientKey)">ანგარიშები</div>
+    <div class="ui segment  center aligned" (click)="goOperations(user.clientKey)">ოპერაციები</div>
+  </div>
+</div>
+
